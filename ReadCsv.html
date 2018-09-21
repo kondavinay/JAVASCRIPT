@@ -1,0 +1,33 @@
+<!DOCTTYPE.HTML>
+<html>
+<div id="page-wrapper">
+
+        <div>
+            Select a text file: 
+            <input type="file" id="fileInput">
+        </div>
+        <pre id="fileDisplayArea"><pre>
+
+    </div>
+    <button onClick="test()">Show Text</button>
+<script>
+function test (){
+    var file = fileInput.files[0];
+var textType = /text.*/;
+if (file.name.endsWith('.csv')) {
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+    var look = reader.result;
+    window.prompt (look);
+  }
+
+  reader.readAsText(file);  
+} else {
+  fileDisplayArea.innerText = "File not supported!";
+}
+}
+
+
+</script>
+</html>
